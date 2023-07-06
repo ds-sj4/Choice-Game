@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Choice Game</title>
+    <script src="https://unpkg.com/jspsych@7.3.3"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.1.2"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-survey@0.2.1"></script>
+
+    <script type="text/javascript" src="lib/vendors/jquery-2.2.0.min.js"></script>
+	  <script type="text/javascript" src="lib/jspsych-pavlovia-3.0.0.js"></script>
+
+    <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/@jspsych/plugin-survey@0.2.1/css/survey.css">
+
+    <style>
+        /* Colour */
+        @keyframes colour {
+            from {background-color: green;}
+            to {background-color: white;}
+        }
+        .chosen {
+            background-color: white;
+            animation-name: colour;
+            animation-duration: 2s;
+        } 
+
+         /* Number */
+         @keyframes number {
+            0% {font-size: 0px;}
+            25% {font-size: 20px;}
+            50% {font-size: 20px;}
+            75% {font-size: 20px;}
+            100% {font-size: 0px;}
+        }
+        .value {
+            font-size: 0px;;
+            animation-name: number;
+            animation-duration: 2s;
+        } 
+    </style>
+    <style>
+      body {
+        background-color: lightslategray;
+      }
+      </style>
+    
+  </head>
+  <body></body>
+  <script>
+    
+    const jsPsych = initJsPsych()
+
+    // Define the experiment timeline
+    var timeline = []
+
+    /* init connection with pavlovia.org */
+    var pavlovia_init = {
+      type: "pavlovia",
+      command: "init"
+    }
+    timeline.push(pavlovia_init)
+
+    // Welcome Message
+    var welcome = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: "<p> Welcome to the experiment. </p> <p> Press any key to begin. </p>"
+    }
+    timeline.push(welcome)
+
+    // // PIL
+    // var pil = {
+    //   type: jsPsychHtmlKeyboardResponse,
+    //   stimulus: `<object 
+    //   type="application/pdf" 
+    //   data="file:///C:/Users/sarah/OneDrive/Documents/BDS/Dissertation/Ethics/PIL.pdf" 
+    //   width="900"
+    //   height="500"
+    //   > 
+    //   </object>
+    //   <p>Press any key to continue.</p>
+    //   `
+    // }
+    // timeline.push(pil)
+
+    // Consent Form
+    var consent = {
+      type: jsPsychHtmlButtonResponse,
+      stimulus: `<p>By checking the box below, I confirm that:</p>
+      <p>  1.	I have read and understand the information sheet for the above study. 
+        I have had the opportunity to consider the information, ask questions and have 
+        had these answered satisfactorily. </p>
+      <p>  2.	I understand that my participation is voluntary and that I am free to withdraw 
+        at any time without giving any reason, without my rights being affected.</p>
+      <p>  3.	I understand that data collected during the study, may be looked at by individuals 
+        from The University of Warwick. I give permission for these individuals to have access to my data.</p>
+      <p>  4.	I understand that my choice and response time in the study will be recorded.</p> 
+      <p>  5.	I understand that my anonymized data will be made publicly available to the scientific 
+        community. There will be no way to tie these anonymized data back to me personally. </p>
+      <p>  6.	I understand that my data may be used in future research. </p>
+      <p>  7.  I agree to take part in the above study.	</p>
+      </div>
+      <p> If you do not agree, please exit by closing the browser. </p>
+      <p> I have read and agreed with the points above. </p>
+      `,
+      choices: ['Yes']
+    }
+    timeline.push(consent)
+
+    // Instructions
+    var instructions = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `
+        <p>This experiment should not take more than 15-20 minutes.</p>
+        </div>
+        <p>On the screen you will see two options, A and B.  
+          You are required to choose between these options for 50 times(trials) without any prior information.
+          This constitutes one block. You will have 4 such blocks.</p>
+        <p>You will start the experiment with 0 tokens.
+          Each option will correspond to some loss or gain of tokens.
+          Each block has different token values for each option.</p>
+        <p>When you click on an option, the colour of the option will change to green.
+          The tokens gained or lost will be shown under the choices after each trial.
+          The tokens will accumulate within each block and are shown on the screen.
+          After each block, the total tokens will be shown on the screen before the start of the next block.
+          At the end of all 4 blocks, the accumulated tokens for all blocks will be shown.
+          These tokens will convert to bonus payments you will recieve at the end of the experiment.</p>
+          </div>
+          <p> Press any key to read more about how the tokens convert to additional payments.</p>
+      `
+    }
+    timeline.push(instructions)
+
+    // Payments
+    var payments = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `
+        <p>You will receive £2.0 as a base payment for 15-20 minutes of your time along with 
+          additional bonus payments.</p>
+        </div>
+        <p>The additional bonus payments are as follows:</p>
+        <p>For 0 - 100 tokens, you will receive £0.5.</p>
+        <p>For 100 - 200 tokens, you will receive £1.0.</p>
+        <p>For 200 - 300 tokens, you will receive £1.5.</p>
+        <p>If you get 300 tokens or above, you will receive £2.0.</p>
+        <p>However, if the final accumulated tokens are negative, you will not receive any additional bonus 
+          payments over the base payment.</p>
+          </div>
+          <p> Press any key to start the experiment.</p>
+      `
+    }
+    timeline.push(payments)
+
+    // Distributions
+    function rand_choice() {
+      if (Math.random() < 0.5) {
+        return 0
+      } else {
+        return 1
+      }
+    }
+    var labels = ['Loss-High', 'Loss-Low', 'Gain-High', 'Gain-Low']
+    var safe = [-100, -1, 100, 1]
+    var risky = [[-1, -200], [-1, -2], [0, 200], [0, 2]]
+    if (Math.random() < 0.5) {
+      var temp1 = safe[2]
+      var temp2 = risky[2]
+      var label_temp02 = labels[2]
+      safe[2] = safe[0]
+      risky[2] = risky[0]
+      safe[0] = temp1
+      risky[0] = temp2
+      labels[2] = labels[0]
+      labels[0] = label_temp02
+      var temp3 = safe[3]
+      var temp4 = risky[3]
+      var label_temp13 = labels[3]
+      safe[3] = safe[1]
+      risky[3] = risky[1]
+      safe[1] = temp3
+      risky[1] = temp4
+      labels[3] = labels[1]
+      labels[1] = label_temp13
+    }
+    if (Math.random() < 0.5) {
+      var temp1 = safe[1]
+      var temp2 = risky[1]
+      var label_temp = labels[1]
+      safe[1] = safe[0]
+      risky[1] = risky[0]
+      safe[0] = temp1
+      risky[0] = temp2
+      labels[1] = labels[0]
+      labels[0] = label_temp
+    }
+    if (Math.random() < 0.5) {
+      var temp1 = safe[3]
+      var temp2 = risky[3]
+      var label_temp = labels[3]
+      safe[3] = safe[2]
+      risky[3] = risky[2]
+      safe[2] = temp1
+      risky[2] = temp2
+      labels[3] = labels[2]
+      labels[2] = label_temp
+    }
+    var safe_array = []
+
+    var final = 0
+    for (var i = 0; i < 4; i++){
+      var safe_option = rand_choice() 
+
+      // Create a trial for each gamble
+      
+      var block = {
+        type: jsPsychHtmlKeyboardResponse,
+        stimulus: '<p> Block ' + (i+1) + '</div> Press any key to continue. </p>'
+      }
+      timeline.push(block)
+      var token = 0
+      var choice_option = ""
+      for (var j = 0; j < 50; j++) {
+        var trial = {
+          type: jsPsychHtmlButtonResponse,
+          stimulus() { 
+            return '<p> Total Tokens for current block: ' + final.toFixed(2) + '</p>' +
+            '<p>Choose one of the following gambles:</p>' 
+          },
+          choices: ['A', 'B'],
+          // Store trial data for analysis
+          data: {
+            block: i,
+          }, 
+          on_load(data) {
+            var buttons = [...document.querySelectorAll('button')]
+            for (var n=0; n<2; n++){
+              buttons[n].style.height = '100px'
+              buttons[n].style.width = '100px'
+              buttons[n].style.fontSize = '30px'
+            }
+            
+            if (choice_option == "") {
+                return ":)"
+            }
+            
+            var choice_button = buttons.find(button => button.innerText == choice_option)
+            choice_button.classList.add('chosen')
+            var choice_token = document.createElement('p')
+            choice_token.innerText = token
+            choice_token.classList.add('value')
+            document.getElementById('jspsych-content').appendChild(choice_token)
+          },
+          on_finish(data) {
+            if (data.response == safe_option) {
+              data.outcome = parseFloat((Math.random()+safe[data.block]).toFixed(2))
+            } else {
+              if (Math.random() < 0.5) {
+                data.outcome = parseFloat((Math.random()+risky[data.block][0]).toFixed(2))
+              } else {
+                data.outcome = parseFloat((Math.random()+risky[data.block][1]).toFixed(2))
+              }
+            }
+            token = data.outcome
+            choice_option = data.response ? 'B' : 'A'
+            final += token  
+          }
+        }
+        timeline.push(trial)
+      }
+      safe_array.push(safe_option)   
+      var block_end = {
+        type: jsPsychHtmlKeyboardResponse,
+        stimulus: '<p> Total Tokens for Block ' + (i+1) + ': ',
+        on_start(trial) {
+          trial.stimulus += final.toFixed(2) + ' </p>' 
+        },
+        trial_duration: 2000,
+        on_finish() {
+          final = 0
+          token = 0
+          choice_option = ""
+        }
+      }
+      timeline.push(block_end)   
+    }
+
+
+
+    // Create a trial to display the final results
+    var resultsTrial = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus() {
+        // Retrieve the data from all trials
+        var allData = jsPsych.data.get().values().filter(x => x.outcome)
+
+        //console.log(allData.map(data => data.response))
+        var b1_responses = allData.map(data => data.response).slice(0,50)
+        var b2_responses = allData.map(data => data.response).slice(50,100)
+        var b3_responses = allData.map(data => data.response).slice(100,150)
+        var b4_responses = allData.map(data => data.response).slice(150)
+        //console.log(allData.map(data => data.rt))
+        var b1_rt = allData.map(data => data.rt).slice(0,50)
+        var b2_rt = allData.map(data => data.rt).slice(50,100)
+        var b3_rt = allData.map(data => data.rt).slice(100,150)
+        var b4_rt = allData.map(data => data.rt).slice(150)
+        //console.log(allData.map(data => data.outcome))
+        var b1_outcomes = allData.map(data => data.outcome).slice(0,50)
+        var b2_outcomes = allData.map(data => data.outcome).slice(50,100)
+        var b3_outcomes = allData.map(data => data.outcome).slice(100,150)
+        var b4_outcomes = allData.map(data => data.outcome).slice(150)
+        // Compute and display the participant's total earnings
+        var totalEarnings = 0
+        var outcome_array = allData.map(data => data.outcome)
+        for (var i = 0; i < outcome_array.length; i++){
+          totalEarnings += outcome_array[i]
+        }
+        console.log(totalEarnings)
+
+        var data = {
+          block1_response_times: b1_rt,
+          block2_response_times: b2_rt,
+          block3_response_times: b3_rt,
+          block4_response_times: b4_rt,
+          block1_response: b1_responses,
+          block2_response: b2_responses,
+          block3_response: b3_responses,
+          block4_response: b4_responses,
+          block1_outcome: b1_outcomes,
+          block2_outcome: b2_outcomes,
+          block3_outcome: b3_outcomes,
+          block4_outcome: b4_outcomes,
+          blocks_safe_option: safe_array,
+          final_tokens: totalEarnings,
+          blocks_order: labels
+        }
+        console.log(data)
+        
+        return '<p> Game Over </p>' +
+              '<p>Total Tokens: ' + totalEarnings.toFixed(2) + '</p>' +
+              '<p>Press any key to end the experiment.</p>'
+      }
+    }
+    timeline.push(resultsTrial)
+
+    // attention
+    var attention = {
+      type: jsPsychSurvey,
+      pages: [
+        [
+          {
+            type: 'html',
+            prompt: 'Do you remember the token values in each block?',
+          },
+          {
+            type: 'multi-choice',
+            prompt: "What was the range of the token values in Block 1?",
+            name: 'Block 1',
+            options: ['-1 to -200', '-1 to -2', '0 to 200', '0 to 2', 
+            '-1 to -300', '-4 to -5', '4 to 5', '1 to 300'],
+            required: true,
+            option_reorder: "random",
+          },
+          {
+            type: 'multi-choice',
+            prompt: "What was the range of the token values in Block 2?",
+            name: 'Block 2',
+            options: ['-1 to -200', '-1 to -2', '0 to 200', '0 to 2', 
+            '-1 to -300', '-4 to -5', '4 to 5', '1 to 300'],
+            required: true,
+            option_reorder: "random",
+          },
+          {
+            type: 'multi-choice',
+            prompt: "What was the range of the token values in Block 3?",
+            name: 'Block 3',
+            options: ['-1 to -200', '-1 to -2', '0 to 200', '0 to 2', 
+            '-1 to -300', '-4 to -5', '4 to 5', '1 to 300'],
+            required: true,
+            option_reorder: "random",
+          },
+          {
+            type: 'multi-choice',
+            prompt: "What was the range of the token values in Block 4?",
+            name: 'Block 4',
+            options: ['-1 to -200', '-1 to -2', '0 to 200', '0 to 2', 
+            '-1 to -300', '-4 to -5', '4 to 5', '1 to 300'],
+            required: true,
+            option_reorder: "random",
+          }
+        ]
+      ]
+    }
+    timeline.push(attention)
+
+    // questionnaire
+    var questionnaire = {
+      type: jsPsychSurvey,
+      pages: [
+        [
+          {
+            type: 'html',
+            prompt: 'Please answer the following questions:',
+          },
+          {
+            type: 'text',
+            prompt: "How old are you?", 
+            name: 'Age', 
+            textbox_columns: 5,
+            required: false,
+          },
+          {
+            type: 'multi-choice',
+            prompt: "Which gender identity do you identify with?", 
+            name: 'Gender', 
+            options: ['Female', 'Male', 'Non-Binary', 'Other', 'Prefer not to say'], 
+            required: false
+          }, 
+          {
+            type: 'multi-choice',
+            prompt: "Is English your first language?", 
+            name: 'English', 
+            options: ['Yes', 'No'], 
+            required: false,
+          },
+          {
+            type: 'multi-choice',
+            prompt: "Are you right-handed, left-handed, or fully ambidextrous?", 
+            name: 'Hand', 
+            options: ['Right-Handed', 'Left-Handed', 'Fully Ambidextrous'], 
+            required: false
+          }, 
+          {
+            type: 'multi-choice',
+            prompt: "Do you have normal or corrected-to-normal vision?", 
+            name: 'Vision', 
+            options: ['Normal Vision', 'Corrected-to-Normal Vision'], 
+            required: false,
+          },
+          {
+            type: 'multi-choice',
+            prompt: "What is your highest education level?", 
+            name: 'Education', 
+            options: ['Preliminary School', 'Middle School', 'High School', 
+            'Bachelors Degree or Equivalent', 'Masters Degree or Equivalent', 'Doctoral Degree'], 
+            required: false
+          }
+        ]
+      ]
+    }
+    timeline.push(questionnaire)
+
+    // // Debrief
+    // var debrief = {
+    //   type: jsPsychHtmlKeyboardResponse,
+    //   stimulus: `<object 
+    //   type="application/pdf" 
+    //   data="file:///C:/Users/sarah/OneDrive/Documents/BDS/Dissertation/Ethics/Debrief%20doc.pdf" 
+    //   width="900"
+    //   height="500"
+    //   > 
+    //   </object>
+    //   <p>Press any key to continue.</p>
+    //   `
+    // }
+    // timeline.push(debrief)
+
+    /* finish connection with pavlovia.org */
+    var pavlovia_finish = {
+      type: "pavlovia",
+      command: "finish"
+      }
+    timeline.push(pavlovia_finish)
+
+    jsPsych.run(timeline)
+  </script>
+</html>
