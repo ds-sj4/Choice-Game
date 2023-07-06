@@ -68,20 +68,20 @@
     }
     timeline.push(welcome)
 
-    // // PIL
-    // var pil = {
-    //   type: jsPsychHtmlKeyboardResponse,
-    //   stimulus: `<object 
-    //   type="application/pdf" 
-    //   data="file:///C:/Users/sarah/OneDrive/Documents/BDS/Dissertation/Ethics/PIL.pdf" 
-    //   width="900"
-    //   height="500"
-    //   > 
-    //   </object>
-    //   <p>Press any key to continue.</p>
-    //   `
-    // }
-    // timeline.push(pil)
+    // PIL
+    var pil = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `<object 
+      type="application/pdf" 
+      data="/PIL.pdf" 
+      width="900"
+      height="500"
+      > 
+      </object>
+      <p>Press any key to continue.</p>
+      `
+    }
+    timeline.push(pil)
 
     // Consent Form
     var consent = {
@@ -449,20 +449,20 @@
     }
     timeline.push(questionnaire)
 
-    // // Debrief
-    // var debrief = {
-    //   type: jsPsychHtmlKeyboardResponse,
-    //   stimulus: `<object 
-    //   type="application/pdf" 
-    //   data="file:///C:/Users/sarah/OneDrive/Documents/BDS/Dissertation/Ethics/Debrief%20doc.pdf" 
-    //   width="900"
-    //   height="500"
-    //   > 
-    //   </object>
-    //   <p>Press any key to continue.</p>
-    //   `
-    // }
-    // timeline.push(debrief)
+    // Debrief
+    var debrief = {
+      type: jsPsychHtmlKeyboardResponse,
+      stimulus: `<object 
+      type="application/pdf" 
+      data="/Debrief%20doc.pdf" 
+      width="900"
+      height="500"
+      > 
+      </object>
+      <p>Press any key to continue.</p>
+      `
+    }
+    timeline.push(debrief)
 
     /* finish connection with pavlovia.org */
     var pavlovia_finish = {
