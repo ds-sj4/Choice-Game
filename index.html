@@ -49,7 +49,22 @@
   <body></body>
   <script>
     
-    const jsPsych = initJsPsych()
+    var jsPsych = initJsPsych({
+    on_finish(){
+      window.location = "https://app.prolific.co/submissions/complete?cc=C5YLPKGH"
+    }
+    })
+
+    // capture info from Prolific
+    var subject_id = jsPsych.data.getURLVariable('PROLIFIC_PID')
+    var study_id = jsPsych.data.getURLVariable('STUDY_ID')
+    var session_id = jsPsych.data.getURLVariable('SESSION_ID')
+
+    jsPsych.data.addProperties({
+      subject_id: subject_id,
+      study_id: study_id,
+      session_id: session_id
+    })
 
     // Define the experiment timeline
     var timeline = []
@@ -467,10 +482,7 @@
     /* finish connection with pavlovia.org */
     var pavlovia_finish = {
       type: jsPsychPavlovia,
-      command: "finish",
-      completedCallback: function (){
-        window.location.replace('https://www.google.com/')
-      }
+      command: "finish"
     }
     timeline.push(pavlovia_finish)
 
