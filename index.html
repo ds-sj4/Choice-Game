@@ -464,6 +464,16 @@
     }
     timeline.push(questionnaire)
 
+    /* finish connection with pavlovia.org */
+    var pavlovia_finish = {
+      type: jsPsychPavlovia,
+      command: "finish",
+      completedCallback: function (){
+        window.location.replace('https://www.google.com/')
+      }
+    }
+    timeline.push(pavlovia_finish)
+
     // Debrief
     var debrief = {
       type: jsPsychHtmlKeyboardResponse,
@@ -478,16 +488,6 @@
       `
     }
     timeline.push(debrief)
-
-    /* finish connection with pavlovia.org */
-    var pavlovia_finish = {
-      type: jsPsychPavlovia,
-      command: "finish",
-      completedCallback: function (){
-        window.location.replace('https://www.google.com/')
-      }
-    }
-    timeline.push(pavlovia_finish)
 
     jsPsych.run(timeline)
   </script>
