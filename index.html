@@ -175,8 +175,8 @@
       }
     }
     var labels = ['Loss-High', 'Loss-Low', 'Gain-High', 'Gain-Low']
-    var safe = [-99.5, -0.5, 99.5, 0.5]
-    var risky = [[-0.5, -199.5], [-0.5, -1.5], [0.5, 199.5], [0.5, 1.5]]
+    var safe = [-100, -1, 100, 1]
+    var risky = [[-1, -200], [-1, -2], [0, 200], [0, 2]]
     if (Math.random() < 0.5) {
       var temp1 = safe[2]
       var temp2 = risky[2]
@@ -385,8 +385,8 @@
             type: 'multi-choice',
             prompt: "What was the range of the token values in Block 1?",
             name: 'Block 1',
-            options: ['-1 to -200', '-1 to -2', '0 to 200', '0 to 2', 
-            '-1 to -300', '-4 to -5', '4 to 5', '1 to 300'],
+            options: ['0 to -200', '0 to -2', '0 to 200', '0 to 2', 
+            '-100 to -300', '-1 to -3', '1 to 3', '100 to 300'],
             required: true,
             option_reorder: "random",
           },
@@ -394,8 +394,8 @@
             type: 'multi-choice',
             prompt: "What was the range of the token values in Block 2?",
             name: 'Block 2',
-            options: ['-1 to -200', '-1 to -2', '0 to 200', '0 to 2', 
-            '-1 to -300', '-4 to -5', '4 to 5', '1 to 300'],
+            options: ['0 to -200', '0 to -2', '0 to 200', '0 to 2', 
+            '-100 to -300', '-1 to -3', '1 to 3', '100 to 300'],
             required: true,
             option_reorder: "random",
           },
@@ -403,8 +403,8 @@
             type: 'multi-choice',
             prompt: "What was the range of the token values in Block 3?",
             name: 'Block 3',
-            options: ['-1 to -200', '-1 to -2', '0 to 200', '0 to 2', 
-            '-1 to -300', '-4 to -5', '4 to 5', '1 to 300'],
+            options: ['0 to -200', '0 to -2', '0 to 200', '0 to 2', 
+            '-100 to -300', '-1 to -3', '1 to 3', '100 to 300'],
             required: true,
             option_reorder: "random",
           },
@@ -412,8 +412,8 @@
             type: 'multi-choice',
             prompt: "What was the range of the token values in Block 4?",
             name: 'Block 4',
-            options: ['-1 to -200', '-1 to -2', '0 to 200', '0 to 2', 
-            '-1 to -300', '-4 to -5', '4 to 5', '1 to 300'],
+            options: ['0 to -200', '0 to -2', '0 to 200', '0 to 2', 
+            '-100 to -300', '-1 to -3', '1 to 3', '100 to 300'],
             required: true,
             option_reorder: "random",
           }
