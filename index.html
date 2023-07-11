@@ -267,12 +267,12 @@
           },
           on_finish(data) {
             if (data.response == safe_option) {
-              data.outcome = parseFloat((Math.random()+safe[data.block]).toFixed(2))
+              data.outcome = parseFloat((Math.random()+safe[data.block]).toFixed(0))
             } else {
               if (Math.random() < 0.5) {
-                data.outcome = parseFloat((Math.random()+risky[data.block][0]).toFixed(2))
+                data.outcome = parseFloat((Math.random()+risky[data.block][0]).toFixed(0))
               } else {
-                data.outcome = parseFloat((Math.random()+risky[data.block][1]).toFixed(2))
+                data.outcome = parseFloat((Math.random()+risky[data.block][1]).toFixed(0))
               }
             }
             token = data.outcome
