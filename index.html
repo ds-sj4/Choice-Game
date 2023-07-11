@@ -175,8 +175,8 @@
       }
     }
     var labels = ['Loss-High', 'Loss-Low', 'Gain-High', 'Gain-Low']
-    var safe = [-100, -1, 100, 1]
-    var risky = [[-1, -200], [-1, -2], [0, 200], [0, 2]]
+    var safe = [-99.5, -0.5, 99.5, 0.5]
+    var risky = [[-0.5, -199.5], [-0.5, -1.5], [0.5, 199.5], [0.5, 1.5]]
     if (Math.random() < 0.5) {
       var temp1 = safe[2]
       var temp2 = risky[2]
@@ -267,12 +267,12 @@
           },
           on_finish(data) {
             if (data.response == safe_option) {
-              data.outcome = parseFloat((Math.random()+safe[data.block]).toFixed(0))
+              data.outcome = parseFloat((Math.random()+safe[data.block]).toFixed(2))
             } else {
               if (Math.random() < 0.5) {
-                data.outcome = parseFloat((Math.random()+risky[data.block][0]).toFixed(0))
+                data.outcome = parseFloat((Math.random()+risky[data.block][0]).toFixed(2))
               } else {
-                data.outcome = parseFloat((Math.random()+risky[data.block][1]).toFixed(0))
+                data.outcome = parseFloat((Math.random()+risky[data.block][1]).toFixed(2))
               }
             }
             token = data.outcome
