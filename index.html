@@ -469,10 +469,7 @@
     /* finish connection with pavlovia.org */
     var pavlovia_finish = {
       type: jsPsychPavlovia,
-      command: "finish",
-      dataFilter(data) {
-        return jsPsych.data.get().filterCustom(x => x.response !== undefined).csv()
-      }
+      command: "finish"
     }
     timeline.push(pavlovia_finish)
 
