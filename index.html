@@ -179,6 +179,11 @@
       array[i] = array[j]
       array[j] = temp
     }
+    function payoff(centre){
+      var range = 10
+      var out = Math.round(Math.random()*range)
+      return ((out - range/2) + centre)
+    }
     var labels = ['Loss-High', 'Loss-Low', 'Gain-High', 'Gain-Low']
     var safe = [-100, -10, 100, 10]
     var risky = [-200, -20, 200, 20]
@@ -248,12 +253,12 @@
           },
           on_finish(data) {
             if (data.response == safe_options[data.block]) {
-              data.outcome = parseFloat((Math.random()+safe[data.block]).toFixed(2))
+              data.outcome = payoff(safe[data.block])
             } else {
               if (Math.random() < 0.5) {
                 data.outcome = 0
               } else {
-                data.outcome = parseFloat((Math.random()+risky[data.block]).toFixed(2))
+                data.outcome = payoff(risky[data.block])
               }
             }
             token = data.outcome
