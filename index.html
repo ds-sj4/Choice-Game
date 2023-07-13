@@ -263,7 +263,7 @@
         }
         timeline.push(trial)
       }
-      safe_array.push(safe_option)   
+  
       var block_end = {
         type: jsPsychHtmlKeyboardResponse,
         stimulus: '<p> Total Tokens for Block ' + (i+1) + ': ',
@@ -338,7 +338,7 @@
           block2_outcome: b2_outcomes,
           block3_outcome: b3_outcomes,
           block4_outcome: b4_outcomes,
-          blocks_safe_option: safe_array,
+          blocks_safe_option: safe_options,
           final_tokens: totalEarnings,
           blocks_order: labels
         }
