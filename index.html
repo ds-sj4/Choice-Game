@@ -468,7 +468,11 @@
     /* finish connection with pavlovia.org */
     var pavlovia_finish = {
       type: jsPsychPavlovia,
-      command: "finish"
+      command: "finish",
+      dataFilter(data){
+        console.log(data)
+        return data
+      }
     }
     timeline.push(pavlovia_finish)
 
