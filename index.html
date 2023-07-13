@@ -207,7 +207,6 @@
       swap(risky, 2, 3)
     }
     var safe_options = [rand_choice(), rand_choice(), rand_choice(), rand_choice()]
-
     var final = 0
     for (var i = 0; i < 4; i++){ 
 
@@ -254,7 +253,9 @@
           on_finish(data) {
             if (data.response == safe_options[data.block]) {
               data.outcome = payoff(safe[data.block])
+              data.sr = 'S'
             } else {
+              data.sr = 'R'
               if (Math.random() < 0.5) {
                 data.outcome = 0
               } else {
@@ -468,7 +469,10 @@
     /* finish connection with pavlovia.org */
     var pavlovia_finish = {
       type: jsPsychPavlovia,
-      command: "finish"
+      command: "finish",
+      dataFilter(data) {
+        return jsPsych.data.get().filterCustom(x => x.response != '').csv()
+      }
     }
     timeline.push(pavlovia_finish)
 
