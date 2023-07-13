@@ -201,11 +201,10 @@
       swap(safe, 2, 3)
       swap(risky, 2, 3)
     }
-    var safe_array = []
+    var safe_options = [rand_choice(), rand_choice(), rand_choice(), rand_choice()]
 
     var final = 0
-    for (var i = 0; i < 4; i++){
-      
+    for (var i = 0; i < 4; i++){ 
 
       // Create a trial for each gamble
       
@@ -248,8 +247,7 @@
             document.getElementById('jspsych-content').appendChild(choice_token)
           },
           on_finish(data) {
-            data.safe_option = rand_choice()
-            if (data.response == data.safe_option) {
+            if (data.response == safe_options[data.block]) {
               data.outcome = parseFloat((Math.random()+safe[data.block]).toFixed(2))
             } else {
               if (Math.random() < 0.5) {
@@ -264,7 +262,8 @@
           }
         }
         timeline.push(trial)
-      }   
+      }
+      safe_array.push(safe_option)   
       var block_end = {
         type: jsPsychHtmlKeyboardResponse,
         stimulus: '<p> Total Tokens for Block ' + (i+1) + ': ',
