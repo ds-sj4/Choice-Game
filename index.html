@@ -471,7 +471,7 @@
       type: jsPsychPavlovia,
       command: "finish",
       dataFilter(data) {
-        return jsPsych.data.get().filterCustom(x => x.response !== null).csv()
+        return jsPsych.data.get().filterCustom(x => x.response !== undefined).csv()
       }
     }
     timeline.push(pavlovia_finish)
