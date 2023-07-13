@@ -294,21 +294,21 @@
         // Retrieve the data from all trials
         var allData = jsPsych.data.get().values().filter(x => x.outcome)
 
-        //console.log(allData.map(data => data.response))
-        var b1_responses = allData.map(data => data.response).slice(0,50)
-        var b2_responses = allData.map(data => data.response).slice(50,100)
-        var b3_responses = allData.map(data => data.response).slice(100,150)
-        var b4_responses = allData.map(data => data.response).slice(150)
-        //console.log(allData.map(data => data.rt))
-        var b1_rt = allData.map(data => data.rt).slice(0,50)
-        var b2_rt = allData.map(data => data.rt).slice(50,100)
-        var b3_rt = allData.map(data => data.rt).slice(100,150)
-        var b4_rt = allData.map(data => data.rt).slice(150)
-        //console.log(allData.map(data => data.outcome))
-        var b1_outcomes = allData.map(data => data.outcome).slice(0,50)
-        var b2_outcomes = allData.map(data => data.outcome).slice(50,100)
-        var b3_outcomes = allData.map(data => data.outcome).slice(100,150)
-        var b4_outcomes = allData.map(data => data.outcome).slice(150)
+        // //console.log(allData.map(data => data.response))
+        // var b1_responses = allData.map(data => data.response).slice(0,50)
+        // var b2_responses = allData.map(data => data.response).slice(50,100)
+        // var b3_responses = allData.map(data => data.response).slice(100,150)
+        // var b4_responses = allData.map(data => data.response).slice(150)
+        // //console.log(allData.map(data => data.rt))
+        // var b1_rt = allData.map(data => data.rt).slice(0,50)
+        // var b2_rt = allData.map(data => data.rt).slice(50,100)
+        // var b3_rt = allData.map(data => data.rt).slice(100,150)
+        // var b4_rt = allData.map(data => data.rt).slice(150)
+        // //console.log(allData.map(data => data.outcome))
+        // var b1_outcomes = allData.map(data => data.outcome).slice(0,50)
+        // var b2_outcomes = allData.map(data => data.outcome).slice(50,100)
+        // var b3_outcomes = allData.map(data => data.outcome).slice(100,150)
+        // var b4_outcomes = allData.map(data => data.outcome).slice(150)
         // Compute and display the participant's total earnings
         var totalEarnings = 0
         var outcome_array = allData.map(data => data.outcome)
@@ -330,24 +330,24 @@
 
         var totalAmount = 2 + additionalAmount
 
-        var data = {
-          block1_response_times: b1_rt,
-          block2_response_times: b2_rt,
-          block3_response_times: b3_rt,
-          block4_response_times: b4_rt,
-          block1_response: b1_responses,
-          block2_response: b2_responses,
-          block3_response: b3_responses,
-          block4_response: b4_responses,
-          block1_outcome: b1_outcomes,
-          block2_outcome: b2_outcomes,
-          block3_outcome: b3_outcomes,
-          block4_outcome: b4_outcomes,
-          blocks_safe_option: safe_options,
-          final_tokens: totalEarnings,
-          blocks_order: labels
-        }
-        console.log(data)
+        // var data = {
+        //   block1_response_times: b1_rt,
+        //   block2_response_times: b2_rt,
+        //   block3_response_times: b3_rt,
+        //   block4_response_times: b4_rt,
+        //   block1_response: b1_responses,
+        //   block2_response: b2_responses,
+        //   block3_response: b3_responses,
+        //   block4_response: b4_responses,
+        //   block1_outcome: b1_outcomes,
+        //   block2_outcome: b2_outcomes,
+        //   block3_outcome: b3_outcomes,
+        //   block4_outcome: b4_outcomes,
+        //   blocks_safe_option: safe_options,
+        //   final_tokens: totalEarnings,
+        //   blocks_order: labels
+        // }
+        // console.log(data)
         
         return '<p> Game Over </p>' +
               '<p>Total Tokens: ' + totalEarnings.toFixed(2) + '</p>' +
@@ -468,12 +468,7 @@
     /* finish connection with pavlovia.org */
     var pavlovia_finish = {
       type: jsPsychPavlovia,
-      command: "finish",
-      dataFilter(data){
-        console.log(data)
-        console.log(jsPsych.data.get().json())
-        return jsPsych.data.get().json()
-      }
+      command: "finish"
     }
     timeline.push(pavlovia_finish)
 
