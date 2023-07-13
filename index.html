@@ -471,7 +471,8 @@
       command: "finish",
       dataFilter(data){
         console.log(data)
-        return data
+        console.log(jsPsych.data.get().json())
+        return jsPsych.data.get().json()
       }
     }
     timeline.push(pavlovia_finish)
