@@ -185,8 +185,8 @@
       return ((out - range/2) + centre)
     }
     var labels = ['Loss-High', 'Loss-Low', 'Gain-High', 'Gain-Low']
-    var safe = [-100, -10, 100, 10]
-    var risky = [-200, -20, 200, 20]
+    var safe = [-100, -20, 100, 20]
+    var risky = [-200, -40, 200, 40]
 
     if (Math.random() < 0.5) {
       swap(labels, 0, 2)
