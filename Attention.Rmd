@@ -1,0 +1,16 @@
+---
+title: "Attention"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+d1 <- read.csv('attention.csv') %>%
+  mutate(
+    subject_id = factor(subject_id)
+  ) %>% 
+  glimpse
+```

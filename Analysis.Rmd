@@ -1,0 +1,258 @@
+---
+title: "Choice Game Analysis"
+output: html_document
+---
+
+## Libraries
+
+```{r}
+library(tidyverse)
+library(emmeans)
+library(cowplot)
+library(GGally)
+library(afex)
+library(rstatix)
+library(ggpubr)
+library(BayesFactor)
+library(bayestestR)
+```
+
+## Loading and Cleaning Data
+
+```{r}
+df <- read.csv('choice_game.csv') %>% 
+  mutate(
+    subject_id = factor(subject_id),
+    domain = factor(domain),
+    order = factor(order),
+    block = factor(block),
+    option = factor(sr),
+    sr = NULL
+  ) %>% 
+  glimpse
+```
+
+```{r}
+(participants <- df %>% 
+  group_by(order) %>% 
+  tally())
+```
+
+```{r}
+df %>% 
+  group_by(option) %>% 
+  summarise(p = n()/nrow(df))
+```
+
+## Hyp 1: Effect of Domain on Run Sizes
+
+```{r}
+new_df <- df %>% 
+  group_by(subject_id, block) %>% 
+  mutate(avg_runs = mean(rle(response)$lengths)) %>% 
+  mutate(avg_rt = mean(rt)) %>% 
+  select(subject_id, block, domain, order, avg_runs, avg_rt) %>% 
+  filter(row_number() == 1) %>%
+  glimpse
+```
+
+```{r}
+# Eliminating outliers
+Q <- quantile(new_df$avg_runs, probs = c(.25, .75), na.rm = FALSE)
+
+iqr <- IQR(new_df$avg_runs)
+
+up <-  Q[2]+1.5*iqr # Upper Range  
+low<- Q[1]-1.5*iqr # Lower Range
+
+eliminated <- subset(new_df, new_df$avg_runs > (Q[1] - 1.5*iqr) & new_df$avg_runs < (Q[2]+1.5*iqr))
+```
+
+```{r}
+# mean run length grouped by domain
+(runs_size <- eliminated %>% 
+  group_by(domain) %>% 
+  summarise(mean = mean(avg_runs)))
+```
+
+```{r}
+(t.test(avg_runs ~ domain, eliminated))
+```
+
+```{r}
+(summary(lmer(avg_runs ~ domain + (1|subject_id), eliminated)))
+```
+
+```{r}
+# plot
+ggplot(eliminated, aes(x = domain, y = avg_runs, fill = domain)) + 
+  geom_violin(alpha = 0.3) +
+  stat_summary(fun = "mean",
+               geom = "pointrange", 
+               colour = "black") +
+  xlab("Choice Domain") + ylab("Average Run Size") +
+  theme_dark()
+
+ggsave("domain_runs.png", width = 10, height = 7, units = "cm", dpi = 700)
+```
+
+## Hyp 2: Response time and Domain
+
+```{r}
+df1 <- df %>% 
+  mutate(response = factor(response)) %>% 
+  group_by(subject_id, block) %>% 
+  mutate(change = ifelse(response == lag(response), "Stay", "Switch"))
+
+df1["change"][is.na(df1["change"])] <- "Stay"
+
+df1 <- df1 %>% 
+  mutate(change = factor(change)) %>% 
+  mutate(log_rt = log(rt)) %>% 
+  glimpse
+```
+
+```{r}
+df1 %>% group_by(domain) %>% 
+  summarise(mean = mean(rt))
+```
+
+```{r}
+(t.test(log_rt ~ domain, df1))
+```
+
+```{r}
+# plot
+ggplot(df1, aes(x = domain, y = log_rt, fill = domain)) + 
+  geom_violin(alpha = 0.3) +
+  stat_summary(fun = "mean",
+               geom = "pointrange", 
+               colour = "black") +
+  xlab("Choice Domain") + ylab("Natural Logarithm of Response Times") +
+  theme_dark()
+
+ggsave("domain_rt.png", width = 10, height = 7, units = "cm", dpi = 700)
+```
+
+Effect of Switch and Stay
+
+```{r}
+df1 %>% group_by(change) %>% 
+  summarise(p = n()/nrow(df))
+```
+
+```{r}
+df1 %>% group_by(domain, change) %>% 
+  summarise(mean = mean(rt))
+```
+
+```{r}
+(a <- aov_ez("subject_id", "log_rt", df1, within = c("domain","change")))
+```
+
+```{r}
+(pairs(emmeans(a, "change", "domain")))
+```
+
+```{r}
+# plotting the model
+afex_plot(a, x = "domain", trace = "change",
+          mapping = c("shape", "fill"),
+          data_geom = ggplot2::geom_boxplot,
+          data_arg = list(width = 0.3)) +
+  labs(x = "Choice Domain", y = "Logarithm of Response Times")
+ggsave("switch.png", width = 10, height = 7, units = "cm", dpi = 700)
+```
+
+## Hyp 3: Effect of Order and Domain on Run Sizes
+
+```{r}
+new_df1 <- eliminated %>% 
+  filter(block != 4) %>% 
+  glimpse
+```
+
+```{r}
+# mean run length grouped by domain and order
+(runs_size <- new_df1 %>% 
+  group_by(domain, order) %>% 
+  summarise(mean = mean(avg_runs)))
+```
+
+```{r}
+(a4 <- aov_ez("subject_id", "avg_runs", new_df1, between = "order", within = "domain"))
+```
+
+```{r}
+# finding the differences
+pairs(emmeans(a4, "order", "domain"))
+```
+
+```{r}
+# plotting the model
+afex_plot(a4, x = "domain", trace = "order",
+          mapping = c("shape", "fill"),
+          data_geom = ggplot2::geom_boxplot,
+          data_arg = list(width = 0.3)) +
+  labs(x = "Choice Domain", y = "Average Run Sizes")
+ggsave("runs_dno.png", width = 10, height = 7, units = "cm", dpi = 700)
+```
+
+## Hyp 4: Run size \~ RT
+
+```{r}
+# Eliminating outliers
+Q3 <- quantile(eliminated$avg_rt, probs = c(.25, .75), na.rm = FALSE)
+
+iqr3 <- IQR(eliminated$avg_rt)
+
+up3 <-  Q3[2]+1.5*iqr3 # Upper Range  
+low3 <- Q3[1]-1.5*iqr3 # Lower Range
+
+eliminated3 <- subset(eliminated, eliminated$avg_rt > (Q3[1] - 1.5*iqr3) & eliminated$avg_rt < (Q3[2]+1.5*iqr3))
+```
+
+```{r}
+cor(eliminated3$avg_runs, log(eliminated3$avg_rt), method = "pearson")
+```
+
+```{r}
+ggplot(eliminated3, aes(x = avg_runs, y = log(avg_rt))) +
+  geom_point(alpha = 0.5) +
+  geom_jitter(width = 0.5, height = 0.5) +
+  geom_abline() +
+  xlab("Average Run Sizes") + ylab("Natural Logarithm of Response Times") +
+  theme_dark()
+
+ggsave("runs_rt.png", width = 10, height = 7, units = "cm", dpi = 700)
+```
+
+## Discussion
+
+```{r}
+df %>% 
+  group_by(domain, option) %>% 
+  summarise(p = n()/nrow(df))
+```
+
+## Additional Analysis
+
+```{r}
+# mean response time grouped by domain and order
+(response_time1 <- eliminated1 %>% 
+  group_by(domain, order) %>% 
+  summarise(mean = mean(rt)))
+```
+
+```{r}
+# anova for rt with domain and order
+(a3 <- aov_ez("subject_id", "rt", eliminated1, between = "order", within = "domain"))
+# finding the differences
+pairs(emmeans(a3, c("domain", "order")))
+# plotting the model
+afex_plot(a3, x = "domain", trace = "order", 
+          data_arg = list(cex = 3.5, color = "darkgrey")) +
+  labs(x = "Choice Domain", y = "Response Times") +
+  theme_dark()
+ggsave("rt_dno.png", width = 10, height = 7, units = "cm", dpi = 700)
+```

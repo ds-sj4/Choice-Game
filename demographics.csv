@@ -1,0 +1,150 @@
+Age,Gender,English,Hand,Vision,Education,subject_id
+38,Male,No,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,5ec78dfed068801ed6ca121c
+25,Male,No,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,613a6f7027aabdf561182e6a
+27,Male,No,Right-Handed,Corrected-to-Normal Vision,Masters Degree or Equivalent,5f2e46e5f48b2d1a8454d112
+22,Male,No,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5c60c298af517e0001a00b00
+35,Female,Yes,Right-Handed,Normal Vision,Masters Degree or Equivalent,61bb370140db417c1a138984
+38,Male,Yes,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,5f516a44067fba1b4c562a55
+53,Male,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,6430c599f0887cb443f8da9a
+40,Male,Yes,Left-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,583748dafb65a0000128b059
+30,Female,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,6088a7e22d5b98ef3f813a22
+26,Male,No,Right-Handed,Normal Vision,High School,605d34ffa51bd5dd5f8fad8e
+46,Female,No,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,5bb511c6689fc5000149c703
+27,Male,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5df0932af9a01d0dabd9313d
+43,Female,Yes,Left-Handed,Corrected-to-Normal Vision,High School,5b40ff8b3d066d0001609b63
+28,Male,No,Right-Handed,Normal Vision,Masters Degree or Equivalent,610bc6980e3d49dc4676585b
+27,Female,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5b5a4c642696a70001ee1722
+24,Female,No,Right-Handed,Corrected-to-Normal Vision,Masters Degree or Equivalent,6072c272c57bbc78674883e9
+29,Prefer not to say,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,55fb250177f33b000ccb212f
+48,Male,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,6449b6ac80df4eb6727b570c
+21,Female,No,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,60bf87acf2da5a898c0247db
+24,Female,Yes,Left-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,614ec4145b443e6f24181b99
+23,Male,No,Right-Handed,Normal Vision,High School,5eeb4be60e1a002243b3c096
+38,Male,Yes,Fully Ambidextrous,Normal Vision,Bachelors Degree or Equivalent,611d09d451463e685461272c
+26,Female,Yes,Left-Handed,Normal Vision,Bachelors Degree or Equivalent,610ea3fd151563720147eed8
+30,Male,No,Right-Handed,Corrected-to-Normal Vision,Masters Degree or Equivalent,5e87b0db5ca75a41e4d0480d
+23,Female,No,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,5e75329210ac300a26c58065
+22,Female,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5ba641d1168e5e0001e4275d
+22,Male,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,62ce98befb7d0dbd39cc070d
+33,Male,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,6347200d8ded5172ec43e0bb
+28,Male,No,Right-Handed,Corrected-to-Normal Vision,Masters Degree or Equivalent,612687a5a3c9d923c4050e47
+25,Male,No,Left-Handed,Normal Vision,Masters Degree or Equivalent,60a80fbd13aba726d46b8f2e
+29,Male,No,Right-Handed,Normal Vision,High School,5be3493a7e3c9b0001c4ccf2
+28,Female,Yes,Right-Handed,Corrected-to-Normal Vision,High School,6447a4bd54ab5cb19fd4beab
+20,Female,Yes,Right-Handed,Normal Vision,High School,60bab50bcdd5d7ad3ee97479
+28,Male,No,Right-Handed,Corrected-to-Normal Vision,Masters Degree or Equivalent,5f21977dc0f15e0b2fc712a0
+46,Male,Yes,Right-Handed,Corrected-to-Normal Vision,High School,5bb0df0871e1b2000176bfc2
+36,Male,No,Right-Handed,Normal Vision,High School,612520bd6605794b27e6a0fd
+32,Male,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5d64426653ba680017d9f63a
+35,Male,Yes,Right-Handed,Normal Vision,Masters Degree or Equivalent,636542e86f99b8a5c4ed0461
+54,Female,Yes,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,647e5f4c5b7dfbc365335f72
+18,Female,Yes,Right-Handed,Corrected-to-Normal Vision,High School,64333e37b0fca53775bad01a
+23,Male,No,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,648db135a8d59502e4c50eae
+26,Male,No,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,5e8a5a892f6f027054a83d88
+20,Male,No,Right-Handed,Normal Vision,High School,604408285ea7974512737e72
+41,Female,No,Right-Handed,Corrected-to-Normal Vision,Masters Degree or Equivalent,5dde680c40460edc4a5dc1a2
+23,Male,No,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,608adf0cc8637f7f395352b1
+20,Male,No,Right-Handed,Normal Vision,Middle School,60ef5b1cf52939a80af77543
+20,Male,No,Right-Handed,Normal Vision,High School,6090f6323a468814885fca1e
+24,Male,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5f4826ac7f52512d8d8272b9
+21,Female,No,Right-Handed,Corrected-to-Normal Vision,High School,5efd8bbe8f20d51cd2ab9327
+47,Female,No,Right-Handed,Corrected-to-Normal Vision,Masters Degree or Equivalent,5eb9a6fad80e5e0c1fc3a783
+56,Male,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,646cc5b2ee56fab32907947d
+22,Female,No,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,6123c4b8ecb7401856d2c68c
+30,Female,Yes,Right-Handed,Normal Vision,Masters Degree or Equivalent,61687ebcd2a35ffb762d1928
+28,Non-Binary,No,Right-Handed,Corrected-to-Normal Vision,Masters Degree or Equivalent,5bf01b3e2a9d2c00013ddc2a
+53,Female,No,Right-Handed,Corrected-to-Normal Vision,High School,5e9c3ff1cf719d151612648f
+27,Male,No,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,6136cb52db0f1cb2262bbf5d
+41,Male,No,Right-Handed,Normal Vision,Masters Degree or Equivalent,5d00bb3b51669b000136a986
+36,Male,No,Right-Handed,Normal Vision,Masters Degree or Equivalent,5f06eefaf3fc742667b4e79d
+32,Female,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,611fbfae3ce6f9dfaa946f69
+24,Male,No,Right-Handed,Normal Vision,High School,64526929d8f9b780b29d4d8d
+22,Female,Yes,Right-Handed,Corrected-to-Normal Vision,High School,5d66f49c531d6e0001e99e8a
+54,Female,Yes,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,602a2911a73ba046955f6c58
+20,Male,No,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5f411fbace2acb2737fa819f
+50,Female,Yes,Left-Handed,Corrected-to-Normal Vision,High School,5693df018d93fe000dfa5733
+26,Female,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5ee4b04ee62eb31ba2eaca75
+32,Male,No,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,60a0dfc6f9936b0d30dfea15
+27,Male,No,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,60dae7c2730e385327295c3c
+19,Male,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,647e5108e966c7cb5ec837cc
+27,Female,,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5fc4aaf87e22685e9e8e5c8f
+27,Male,No,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,606b94352e103bc54d43321b
+33,Male,No,Right-Handed,Normal Vision,Masters Degree or Equivalent,5f5494aa76d6147f7ca89533
+30,Male,No,Left-Handed,Normal Vision,High School,5fe223488fd71dd5e57e4c2e
+37,Male,No,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,5e60f63ee6385a000bcbffc9
+35,Female,No,Left-Handed,Normal Vision,High School,617305abc8cde4cf0e08255b
+24,Female,No,Right-Handed,Corrected-to-Normal Vision,High School,5e8783b0fde5153fbd9dca43
+34,Female,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5f3287b83428cb05746e2214
+26,Female,No,Right-Handed,Normal Vision,Masters Degree or Equivalent,5f1b2fe23bcef80c38d2a362
+28,Male,No,Right-Handed,Corrected-to-Normal Vision,High School,5d1a2eb176fb7d0018e8e8d6
+31,Male,Yes,Right-Handed,Corrected-to-Normal Vision,High School,5c34548ed4f77a0001a91c0c
+54,Male,Yes,Right-Handed,Normal Vision,High School,5ba4d89abf3b9d000152023c
+31,Male,Yes,Right-Handed,Normal Vision,High School,62349099af33a7e0ca9357f5
+32,Male,No,Right-Handed,Normal Vision,Masters Degree or Equivalent,6287745dd285a8be832879dc
+41,Male,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5ee683596f9b570626faa11c
+53,Male,Yes,Right-Handed,Corrected-to-Normal Vision,High School,62e2917bb46ebde5c7866071
+38,Female,Yes,Left-Handed,Normal Vision,High School,631610af8e747093cd90e00d
+29,Female,Yes,Right-Handed,Corrected-to-Normal Vision,High School,5b2a72f7c293b90001732b89
+54,Female,Yes,Right-Handed,Normal Vision,High School,594abd98215cbd000146debc
+41,Female,Yes,Right-Handed,Corrected-to-Normal Vision,High School,5eab2dbd0c7a950efa32c3dc
+29,Female,No,Right-Handed,Normal Vision,High School,5c59866b2e4cc90001d08a07
+33,Male,No,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5f600669b846780f0fe45709
+24,Male,No,Left-Handed,Normal Vision,High School,5f043bcfc6d8de66dd56c9a2
+41,Male,No,Right-Handed,Normal Vision,Masters Degree or Equivalent,5bdb71b7fb03aa0001b38ba0
+29,Male,No,Right-Handed,Corrected-to-Normal Vision,High School,5ed8cf4782a6eb04ddf9962d
+18,Male,No,Right-Handed,Normal Vision,High School,5fbfbbd1079da826cd015792
+21,Male,No,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5f6214a59413141f7cb2508c
+28,Female,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5baf6705848bbd0001d6fc8a
+24,Male,Yes,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,62e1581acad06eee3b6509dc
+23,Male,No,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,5f60713e595007000a8e1da7
+28,Male,No,Fully Ambidextrous,Normal Vision,Bachelors Degree or Equivalent,5d6e3252dfe6d10001dbe508
+28,Male,Yes,Right-Handed,Normal Vision,Masters Degree or Equivalent,5c1edaeaafeeef00011588b3
+46,Male,Yes,Right-Handed,Normal Vision,High School,5858c6178604ae000165e66a
+36,Male,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,55b2d3f2fdf99b525bc839aa
+37,Male,No,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,5b8c8e7d0c740e00019d55c3
+24,Female,Yes,Left-Handed,Normal Vision,Masters Degree or Equivalent,6148fa16224d9a3182bb1871
+25,Male,Yes,Fully Ambidextrous,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,6148ad8986cdf6fb069b432c
+20,Male,Yes,Right-Handed,Normal Vision,High School,58ae59babb9e0f0001acb414
+24,Male,No,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,600916bb92179b5ecc406460
+22,Male,No,Left-Handed,Corrected-to-Normal Vision,High School,5e9569e57ca863415e6359bc
+40,Male,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5c2c6e432c45d400014a35e3
+37,Male,Yes,Right-Handed,Normal Vision,High School,5bf311373a5bf00001401f64
+42,Male,Yes,Left-Handed,Normal Vision,Masters Degree or Equivalent,59ff47d47ecfc50001be0555
+31,Male,Yes,Right-Handed,Normal Vision,High School,63474e67a5fd298c6103c409
+34,Male,Yes,Right-Handed,Corrected-to-Normal Vision,High School,582ee44408b46b00010dbb07
+25,Male,Yes,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,5d5e4baff521f100166c5d3a
+44,Male,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,60cc20a8d1d940dcfa9df92d
+32,Male,No,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,589295bdd8cdf10001d885b2
+63,Female,Yes,Left-Handed,Normal Vision,Bachelors Degree or Equivalent,59894fbbda239a0001fb8e16
+37,Male,Yes,Right-Handed,Corrected-to-Normal Vision,High School,55eb04337480920010aa9e0d
+29,Male,Yes,Left-Handed,Normal Vision,High School,5ab10212fb22320001bacdfe
+33,Female,Yes,Right-Handed,Corrected-to-Normal Vision,Masters Degree or Equivalent,5d7de3327ea6c00015c233ea
+22,Male,Yes,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,5eaf3e142627076426921b1b
+37,Female,Yes,Right-Handed,Corrected-to-Normal Vision,High School,5d06743eac143b000118ce79
+42,Female,Yes,Right-Handed,Normal Vision,High School,579e431a81f331000139d5d0
+28,Male,Yes,Right-Handed,Corrected-to-Normal Vision,High School,58542426733c730001a5d1f4
+39,Female,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5ab87be55cd105000161a5a8
+30,Male,Yes,Right-Handed,Normal Vision,High School,565e944394730100114a9119
+46,Male,Yes,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,5994c52989d01e0001aea32f
+38,Male,Yes,Right-Handed,Normal Vision,High School,5c8ba607c5366c0001d022cb
+24,Prefer not to say,No,Right-Handed,Corrected-to-Normal Vision,High School,5ee1272794a7b01487d0d906
+27,Male,No,Left-Handed,Normal Vision,Bachelors Degree or Equivalent,5eb2a99596070102a65d32c7
+26,Female,No,Right-Handed,Corrected-to-Normal Vision,High School,5cdeaeb3557fbd00018a2c59
+21,Male,No,Right-Handed,Corrected-to-Normal Vision,High School,609a7d5287ca8fb83e0780d4
+34,Female,Yes,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,596f961cfe061d00011e3e03
+23,Male,No,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,5d6d82acab68f90001f53194
+26,Male,Yes,Right-Handed,Normal Vision,Masters Degree or Equivalent,5f0f7fe1d7ad1c000b42d091
+29,Male,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,60241d8be372010009703f80
+24,Female,Yes,Left-Handed,Normal Vision,Bachelors Degree or Equivalent,5b630e2e1f5224000167bb60
+43,Male,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,63174af7d57182f9bf90c094
+28,Male,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5f5174760868af3ce9a5d9f7
+36,Male,Yes,Right-Handed,Normal Vision,High School,5edec2b3e095321650bddc22
+24,Female,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,5fd43258ee3342198d98e75a
+25,Male,No,Right-Handed,Corrected-to-Normal Vision,High School,5cacd2d26c35bf0001a5c2dd
+29,Male,Yes,Right-Handed,Normal Vision,High School,5f9f1d991686b653d972d005
+38,Female,No,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,5bb7aae585ac1e000108c7f6
+50,Male,Yes,Right-Handed,Normal Vision,Bachelors Degree or Equivalent,62714a240ed387f760f6741b
+30,Male,No,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,5ef5f63c7aa58727ac4f8588
+27,Male,No,Right-Handed,Normal Vision,High School,60fc39cce64c39328a7c8904
+28,Male,No,Right-Handed,Normal Vision,Masters Degree or Equivalent,60087e9189ddb34b79b08be5
+28,Female,No,Right-Handed,Corrected-to-Normal Vision,Bachelors Degree or Equivalent,5c2d0c8e9564bf00010257d3

@@ -1,0 +1,46 @@
+---
+title: "questionnaire"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+d1 <- read.csv('demographics.csv') %>%
+  mutate(
+    subject_id = factor(subject_id),
+    Gender = factor(Gender),
+    English = factor(English),
+    Hand = factor(Hand),
+    Vision = factor(Vision),
+    Education = factor(Education)
+  ) %>% 
+  glimpse
+```
+
+```{r}
+d1 %>% 
+  group_by(Gender) %>% 
+  tally()
+```
+
+```{r}
+d1 %>% 
+  group_by() %>% 
+  summarise(mean = mean(Age),
+            sd = sd(Age))
+```
+
+```{r}
+d1 %>% 
+  group_by(English) %>% 
+  tally()
+```
+
+```{r}
+d1 %>% 
+  group_by(Education) %>% 
+  tally()
+```
